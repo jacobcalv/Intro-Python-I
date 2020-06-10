@@ -28,6 +28,9 @@ a = ["foo", "bar", "baz"]
 
 y = []
 
+for x in a: 
+    y.append(x.upper())
+
 print(y)
 
 # Use a list comprehension to create a list containing only the _even_ elements
@@ -36,6 +39,6 @@ print(y)
 x = input("Enter comma-separated numbers: ").split(',')
 
 # What do you need between the square brackets to make it work?
-y = []
+y = [ int(var) for var in x if int(var) % 2 == 0]
 
 print(y)
