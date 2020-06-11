@@ -27,28 +27,48 @@ print out a calendar for April in 2015, but if you omit either the year or both 
 it should use today’s date to get the month and year.
 """
 
+# import sys
+# import calendar
+# from datetime import datetime
+
+
+
+# day = datetime.today().day
+# month = datetime.today().month
+# year = datetime.today().year
+
+# user_calendar = calendar.TextCalendar()
+
+# if sys.argv:
+#   if len(sys.argv) == 2:
+#       date = datetime(int(sys.argv[1]), int(sys.argv[0]), day)
+#       print(user_calendar.prmonth(date.year, date.month))
+#   elif len(sys.argv) == 1:
+#       date = datetime(year, int(sys.argv[0]), day)
+#       print(user_calendar.prmonth(date.year, date.month))
+# else: 
+#   date = datetime(year, month, day)
+#   print(user_calendar.prmonth(date.year, date.month))
+
 import sys
 import calendar
 from datetime import datetime
 
-user_data  = input("Enter a month followed by a year sepparated by a / :").split("/")
-
-def new_calendar(*args):
-  day = datetime.today().day
-  month = datetime.today().month
+if len(sys.argv) == 1:
   year = datetime.today().year
+  month = datetime.today().month
+  print(calendar.month(year, month))
+  
+elif len(sys.argv) == 2:
+  year = int(sys.argv[1])
+  month = datetime.today().month
+  print(calendar.month(year, month))
 
-  user_calendar = calendar.TextCalendar()
+elif len(sys.argv) == 3:
+  year = int(sys.argv[2])
+  month = int(sys.argv[1])
+  print(calendar.month(year, month))
 
-  if args:
-    if len(args) == 2:
-        date = datetime(int(args[1]), int(args[0]), day)
-        print(user_calendar.prmonth(date.year, date.month))
-    elif len(args) == 1:
-        date = datetime(year, int(args[0]), day)
-        print(user_calendar.prmonth(date.year, date.month))
-  else: 
-    date = datetime(year, month, day)
-    print(user_calendar.prmonth(date.year, date.month))
 
-new_calendar(*user_data)
+else:
+  print(" Please enter the command again in the following way: 14_cal.py [month] [year] ")
