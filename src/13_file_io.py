@@ -18,6 +18,8 @@ f.close
 # then close the file. Open up "bar.txt" and inspect it to make
 # sure that it contains what you expect it to contain
 
+# WITH OPEN AS
+
 # YOUR CODE HERE
 
 file = open('src/bar.txt', 'w')
